@@ -1,0 +1,70 @@
+@(employee : Employee, reports : List[Employee], reportsTo : Employee, state : State)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>@employee.getFirstName @employee.getLastName</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Employee Secret Information</h1>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <div class="row mb-2">
+                        <div class="col-4">
+                            <label class="badge badge-info">First Name</label>
+                            @employee.getFirstName
+                        </div>
+                        <div class="col-4">
+                            <label class="badge badge-info">Birth date</label>
+                            @employee.getBirthDate
+                        </div>
+                        <div class="col-4">
+                            <label class="badge badge-info">Hire date</label>
+                            @employee.getHireDate
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="badge badge-info">Last Name</label>
+                            @employee.getLastName
+                        </div>
+                        <div class="col-4">
+                            <label class="badge badge-info">State</label>
+                            @state.getStateName
+                        </div>
+                        <div class="col-4">
+                            <label class="badge badge-info">Reports To</label>
+                            @if(reportsTo == null){
+                            None
+                            }else{
+                            @reportsTo.getLastName
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div class="alert alert-info">
+                            <strong>Danger!</strong> This person is a time traveller
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <img src="/employeepicture/@employee.getEmployeeId">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3">
+                    <label class="badge badge-info">Direct Reports</label>
+                    @for(report <- reports){
+                    <p>@report.getLastName</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

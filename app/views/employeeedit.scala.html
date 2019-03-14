@@ -1,0 +1,17 @@
+@(employee : Employee)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p>@employee.getFullName</p>
+        <form method="post">
+            @helper.CSRF.formField
+        <input type="text" value="@employee.getFirstName" name="firstName">
+        <input type="text" value="@employee.getLastName" name="lastName">
+        <input type="submit" value="Save">
+        </form>
+    </body>
+</html>

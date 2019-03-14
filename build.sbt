@@ -1,8 +1,11 @@
-name := """play-java-starter-example"""
+name := """Data Base Demo"""
 
 version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
+//GUI
+libraryDependencies += "org.webjars" % "bootstrap" % "4.3.1"
 
 scalaVersion := "2.12.6"
 

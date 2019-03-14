@@ -5,7 +5,15 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
-GET     /employee                   controllers.EmployeeController.getEmployee
+GET     /employee/:id               controllers.EmployeeController.getEmployee(id:Integer)
+GET     /employeeadd                controllers.EmployeeController.getEmployeeAdd
+POST    /employeeadd                controllers.EmployeeController.postEmployeeAdd
+GET     /employeeedit/:id           controllers.EmployeeController.getEmployeeEdit(id:Integer)
+POST    /employeeedit/:id           controllers.EmployeeController.postEmployeeEdit(id:Integer)
+
+
+GET     /employeepicture/:id        controllers.EmployeeController.getPicture(id:Integer)
+
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
